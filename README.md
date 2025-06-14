@@ -22,7 +22,14 @@ expect app to take a month or more
 eventually find ways to implement vercel ai sdk too
 
 
-<!-- IDEAS PROMPT -->
+use 'https://dribbble.com/shots/24797232-Fitness-tracking-app' for layout ideas, build off of this, round angles, accents of salmon, 
+but mainly black/white for easier dark mode / light mode integration and less time spent on styling
+
+
+
+
+
+<!-- IDEAS  -->
 Track workouts, diet, and weight over time with charts and AI recommendations.
 
 💡 Key Features:
