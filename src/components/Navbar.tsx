@@ -1,5 +1,5 @@
 
-function Header() {
+function Navbar() {
     return (
         <header>
             <div >
@@ -9,4 +9,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Navbar

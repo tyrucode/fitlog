@@ -4,7 +4,8 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 
 //components
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer" //use when its ready
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <Header />
+      <Navbar />
       <body
         className={`${geistSans.variable} antialiased`}
       >
