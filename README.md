@@ -42,7 +42,13 @@ Optional GPT integration
 
 Scoped user data (only see your own logs)
 
-
+STACK:
+Next.js (App Router)
+Prisma ORM
+Supabase (Auth + DB or Storage)
+Tailwind CSS + shadcn/ui (most of the styling)
+Hover.Dev + Aceturnity for animations (focus less)
+TypeScript
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
