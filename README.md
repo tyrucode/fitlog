@@ -1,4 +1,5 @@
-Welcome to FitLog!
+Welcome to FitLog! 
+FOR ANYONE VIEWING, THIS IS MASSIVE WIP
 
 
 start off with just a way for users to log their workouts
