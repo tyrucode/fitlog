@@ -4,7 +4,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 
 //components
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer" //use when its ready
 
 const geistSans = Geist({
@@ -21,13 +21,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <body
-        className={`${geistSans.variable} antialiased`}
+        className={`${geistSans.variable} subpixel-antialiased font-semibold`}
       >
         {children}
       </body>
-      <footer> {/*put footer here */}</footer>
+      <Footer />
     </html>
   );
 }

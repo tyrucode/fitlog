@@ -4,6 +4,8 @@ FOR ANYONE VIEWING, THIS IS MASSIVE WIP
 
 start off with just a way for users to log their workouts
 
+site map - https://www.figma.com/design/dBgbvUTsyADgcMQRt1ukHs/Untitled?node-id=0-1&t=6hOpEdddalzPxZHS-1
+
 users will see home page, use dribble for design ideas, will show users what the app CAN do,
 when user tries to click anything they get told to sign up.
 once user is signed in they can use anything on the home page. 
