@@ -10,7 +10,7 @@ function Navbar() {
                 <ul className="menu menu-horizontal px-1 text-xl">
                     <li><a href="/diary" className="btn btn-ghost ">Start Logging!</a></li>
                     <li><a className="btn btn-ghost">Friends</a></li>
-                    <li><a className="btn btn-ghost">Join</a></li>
+                    <li><a className="btn btn-ghost" href="/auth/signup">Join</a></li>
                 </ul>
 
             </div>
