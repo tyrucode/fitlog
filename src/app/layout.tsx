@@ -21,15 +21,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <header>
-        <Navbar />
-      </header>
       <body
         className={`${geistSans.variable} subpixel-antialiased font-semibold`}
       >
-        {children}
+        <header>
+          <Navbar />
+        </header>
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }

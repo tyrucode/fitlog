@@ -6,18 +6,16 @@ start off with just a way for users to log their workouts
 
 site map - https://www.figma.com/design/dBgbvUTsyADgcMQRt1ukHs/Untitled?node-id=0-1&t=6hOpEdddalzPxZHS-1
 
-users will see home page, use dribble for design ideas, will show users what the app CAN do,
-when user tries to click anything they get told to sign up.
+users will see home page
+when user tries to click anything they get told to sign up using supabase, probably google/github signins.
 once user is signed in they can use anything on the home page. 
 at first it will jsut be a way for users to log workouts
 this will work by allowing users to do a form, the form will ask users what muscle they worked, what workout, duration, 
 and optionally the amount of weight they used. This information will be displayed and saved to the database, 
 users will then get a timeline graph of their strength and how its progressed.
 
-eventually we add access for users to track meals and their body weight. 
-
 users can see their friends profiles and stats for comparisons, users will have profiles, minimal information though just a @ for them to
-be found by, and you will be able to see your friends graphs and what they worked out and eventually even their meals.
+be found by, and you will be able to see your friends graphs and what they worked out.
 
 expect app to take a month or more
 
