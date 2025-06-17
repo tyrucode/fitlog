@@ -1,6 +1,8 @@
 'use client';
+//regular imports
 import supabase from "@/lib/supbase";
 import React, { useState } from "react";
+
 
 function Page() {
     //type alias for the forms data
@@ -60,23 +62,23 @@ function Page() {
                         signUp();
                     }}
                 >
-                    <label htmlFor="fname">First Name:</label>
+                    <label htmlFor="first_name">First Name:</label>
                     <input
                         onChange={handleChange}
                         value={formData.first_name}
                         type="text"
-                        id="fname"
+                        id="first_name"
                         required
                         placeholder="First Name"
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"
                     />
 
-                    <label htmlFor="lname">Last Name:</label>
+                    <label htmlFor="last_name">Last Name:</label>
                     <input
                         onChange={handleChange}
                         value={formData.last_name}
                         type="text"
-                        id="lname"
+                        id="last_name"
                         required
                         placeholder="Last Name"
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"

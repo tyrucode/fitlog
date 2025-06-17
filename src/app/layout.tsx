@@ -6,6 +6,8 @@ import "./globals.css";
 //components
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer" //use when its ready
+//context
+import { UserProvider } from "@/context/UserContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           <Navbar />
         </header>
         <main className="min-h-screen">
-          {children}
+          <UserProvider>
+            {children}
+          </UserProvider>
         </main>
         <Footer />
       </body>
