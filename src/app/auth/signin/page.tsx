@@ -41,8 +41,9 @@ function page() {
                     <button type="submit" className="btn btn-ghost">
                         Sign In!
                     </button>
-                    <a className="btn btn-ghost" href="/auth/signup">Dont have an account? Sign Up!</a>
+
                 </form>
+                <a className=" flex flex-col gap-4 btn btn-ghost" href="/auth/signup">Dont have an account? Sign Up!</a>
             </div>
         </div>
     )

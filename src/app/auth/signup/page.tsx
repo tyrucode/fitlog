@@ -1,10 +1,53 @@
 'use client';
+import supabase from "@/lib/supbase";
+import React, { useState } from "react";
 
 function Page() {
-
-    const signUp = () => {
-        console.log('sign up!');
+    //type alias for the forms data
+    type FormData = {
+        email: string;
+        password: string;
+        first_name: string;
+        last_name: string;
     };
+    //using type alias to declare the types of values being inputted into our form
+    const [formData, setFormData] = useState<FormData>({
+        email: '',
+        password: '',
+        first_name: '',
+        last_name: '',
+    })
+
+    //function for users to signup
+    const signUp = async () => {
+        const { email, password, first_name, last_name } = formData
+        const { data, error } = await supabase.auth.signUp(
+            {
+                email,
+                password,
+                options: {
+                    data: {
+                        first_name,
+                        last_name
+                    }
+                }
+            }
+        )
+        //normally would do a try catch but since supabases function just offers this we will use that 
+        if (error) {
+            console.log('error signing up:', error)
+        } else {
+            console.log('user signed up!', data)
+            window.location.href = "/auth/signin";
+
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { id, value } = e.target;
+        setFormData((prev) => ({ ...prev, [id]: value }))
+    }
+
 
     return (
         <div className="flex flex-col items-center justify-center p-8 gap-16 sm:p-20">
@@ -19,6 +62,8 @@ function Page() {
                 >
                     <label htmlFor="fname">First Name:</label>
                     <input
+                        onChange={handleChange}
+                        value={formData.first_name}
                         type="text"
                         id="fname"
                         required
@@ -28,6 +73,8 @@ function Page() {
 
                     <label htmlFor="lname">Last Name:</label>
                     <input
+                        onChange={handleChange}
+                        value={formData.last_name}
                         type="text"
                         id="lname"
                         required
@@ -37,6 +84,8 @@ function Page() {
 
                     <label htmlFor="email">Email:</label>
                     <input
+                        onChange={handleChange}
+                        value={formData.email}
                         type="email"
                         id="email"
                         required
@@ -46,11 +95,13 @@ function Page() {
 
                     <label htmlFor="password">Password:</label>
                     <input
+                        onChange={handleChange}
+                        value={formData.password}
                         type="password"
                         id="password"
                         required
                         placeholder="Password"
-                        minLength={8}
+                        minLength={6}
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                         title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"
@@ -58,8 +109,8 @@ function Page() {
                     <button type="submit" className="btn btn-ghost">
                         Create Account
                     </button>
-                    <a className="btn btn-ghost" href="/auth/signin">Already have an account? Sign In!</a>
                 </form>
+                <a className="btn btn-ghost flex flex-col gap-4" href="/auth/signin">Already have an account? Sign In!</a>
             </div>
         </div>
     );
