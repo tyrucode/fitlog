@@ -25,6 +25,7 @@ function page() {
 
         if (error) {
             console.log('error signing in:', error)
+
         } else {
             console.log('user signed in!', data)
             window.location.href = "/diary";

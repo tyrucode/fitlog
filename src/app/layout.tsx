@@ -26,15 +26,16 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       <body
         className={`${geistSans.variable} subpixel-antialiased font-semibold`}
       >
-        <header>
-          <Navbar />
-        </header>
-        <main className="min-h-screen">
-          <UserProvider>
+        <UserProvider>
+          <header>
+            <Navbar />
+          </header>
+          <main className="min-h-screen">
             {children}
-          </UserProvider>
-        </main>
-        <Footer />
+
+          </main>
+          <Footer />
+        </UserProvider>
       </body>
     </html>
   );
