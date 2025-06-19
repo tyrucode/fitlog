@@ -1,7 +1,7 @@
 'use client';
 //regular imports
 import supabase from "@/lib/supbase";
-import React, { useState } from "react";
+import { useState } from "react";
 
 
 function Page() {

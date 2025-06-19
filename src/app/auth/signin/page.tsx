@@ -1,9 +1,34 @@
 'use client';
+import supabase from "@/lib/supbase";
+import { useState } from "react";
 
 function page() {
+    //type alias for the forms data
+    type FormData = {
+        email: string;
+        password: string;
+    };
+    //using type alias to declare the types of values being inputted into our form
+    const [formData, setFormData] = useState<FormData>({
+        email: '',
+        password: '',
+    })
 
-    const signIn = () => {
+    const signIn = async () => {
+        const { email, password } = formData
         console.log('sign in!');
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password,
+        })
+
+        if (error) {
+            console.log('error signing in:', error)
+        } else {
+            console.log('user signed in!', data)
+            window.location.href = "/diary";
+        }
     };
 
     return (
