@@ -67,7 +67,7 @@ function page() {
                         id="password"
                         required
                         placeholder="Password"
-                        minLength={8}
+                        minLength={6}
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                         title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"

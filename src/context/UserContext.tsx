@@ -22,6 +22,10 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     const [session, setSession] = useState<Session | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
+
+    //use session for api calls needing authentication, use user for most frontend calls
+    //like this -- const token = session?.access_token
+
     //initial load to check for log
     useEffect(() => {
         //creating/updating our own state for easier use
@@ -37,8 +41,10 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
             (event, session) => {
                 if (event === 'SIGNED_OUT') {
                     setSession(null)
+                    setUser(null)
                 } else if (session) {
                     setSession(session)
+                    setUser(session.user)
                 }
             })
         return () => {
