@@ -31,6 +31,11 @@ function page() {
         }
     };
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { id, value } = e.target;
+        setFormData((prev) => ({ ...prev, [id]: value }))
+    }
+
     return (
         <div className="flex flex-col items-center justify-center p-8 gap-16 sm:p-20">
             <h1 className="text-2xl font-semibold text-center">Sign In!</h1>
@@ -45,6 +50,8 @@ function page() {
 
                     <label htmlFor="email">Email:</label>
                     <input
+                        onChange={handleChange}
+                        value={formData.email}
                         type="email"
                         id="email"
                         required
@@ -54,6 +61,8 @@ function page() {
 
                     <label htmlFor="password">Password:</label>
                     <input
+                        onChange={handleChange}
+                        value={formData.password}
                         type="password"
                         id="password"
                         required
