@@ -31,8 +31,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         //creating/updating our own state for easier use
         const getInitialSession = async () => {
             const { data } = await supabase.auth.getSession();
-            setSession(data.session);
             setUser(data.session?.user ?? null);
+            setSession(data.session);
             setIsLoading(false);
         }
         getInitialSession();
