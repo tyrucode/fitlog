@@ -52,8 +52,9 @@ function Page() {
 
 
     return (
-        <div className="flex flex-col items-center justify-center p-8 gap-16 sm:p-20">
-            <h1 className="text-2xl font-semibold text-center">Welcome to Sign Up Page</h1>
+        <div className="flex flex-col items-center justify-center p-8 gap-6 sm:p-20">
+            <h1 className="text-3xl font-semibold text-center">Register your account</h1>
+            <h2>so that you can use all the features FitLog has to offer!</h2>
             <div className="border border-black rounded p-6 w-full max-w-md bg-white shadow-md">
                 <form
                     className="flex flex-col gap-4"
