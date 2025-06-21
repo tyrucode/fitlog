@@ -17,12 +17,11 @@ function page() {
     })
 
     //creating states for errors
-    const [status, setStatus] = useState<string>('');
+    const [status, setStatus] = useState<{ type: 'error' | 'success'; message: string } | null>(null);
 
     const signIn = async () => {
         const { email, password } = formData
         console.log('sign in!');
-        setStatus('');
 
         const { data, error } = await supabase.auth.signInWithPassword({
             email: email,
@@ -31,11 +30,13 @@ function page() {
 
         if (error) {
             console.log('error signing in:', error)
-            setStatus(error.message)
+            setStatus({ type: 'error', message: error.message })
 
         } else {
-            console.log('user signed in!', data)
-            window.location.href = "/diary";
+            setStatus({ type: 'success', message: 'Password successfully reset!' });
+            setTimeout(() => {
+                window.location.href = "/diary";
+            }, 1000);
         }
     };
 
@@ -46,18 +47,17 @@ function page() {
 
     const reqPasswordEmail = async () => {
         const { email } = formData;
-        setStatus('');
 
         const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: 'https://example.com/update-password',
+            redirectTo: 'http://localhost:3000/auth/resetpassword',
         })
 
         if (error) {
             console.log('error requesting password reset:', error);
-            setStatus(error.message);
+            setStatus({ type: 'error', message: error.message })
         } else {
             console.log('password reset email sent!', data);
-            setStatus('Password reset email sent! Please check your inbox.');
+            setStatus({ type: 'success', message: 'Password reset email sent! Please check your inbox.' });
         }
     };
 
@@ -99,16 +99,22 @@ function page() {
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"
                     />
                     {status && (
-                        <div className="text-red-600 text-sm font-medium">
-                            Error: {status}, please try again.
+                        <div className={`${status.type === 'error' ? 'text-red-600' : 'text-green-600'} text-sm font-medium`}>
+                            {status.message}
                         </div>
                     )}
                     <button type="submit" className="btn btn-ghost">
                         Sign In!
                     </button>
                 </form>
-                <a className=" flex flex-col gap-4 btn btn-ghost" href="/auth/signup">Dont have an account? Sign Up here!</a>
-                <button className=" flex flex-col gap-4 btn btn-ghost" onClick={() => reqPasswordEmail()}>Forgot your password? Reset here!</button>
+                <div className="flex flex-col">
+                    <a className="btn btn-ghost" href="/auth/signup">
+                        Don't have an account? Sign Up here!
+                    </a>
+                    <button className="btn btn-ghost" onClick={() => reqPasswordEmail()}>
+                        Forgot your password? Reset here!
+                    </button>
+                </div>
 
             </div>
         </div>

@@ -20,6 +20,9 @@ function Page() {
         last_name: '',
     })
 
+    //creating states for errors
+    const [status, setStatus] = useState<{ type: 'error' | 'success'; message: string } | null>(null);
+
     //function for users to signup
     const signUp = async () => {
         const { email, password, first_name, last_name } = formData
@@ -38,10 +41,13 @@ function Page() {
         //normally would do a try catch but since supabases function just offers this we will use that 
         if (error) {
             console.log('error signing up:', error)
+            setStatus({ type: 'error', message: error.message })
         } else {
             console.log('user signed up!', data)
-            window.location.href = "/auth/signin";
-
+            setStatus({ type: 'success', message: 'Successfully signed up!' })
+            setTimeout(() => {
+                window.location.href = "/auth/signin";
+            }, 1000);;
         }
     };
 
@@ -109,6 +115,11 @@ function Page() {
                         title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"
                     />
+                    {status && (
+                        <div className={`${status.type === 'error' ? 'text-red-600' : 'text-green-600'} text-sm font-medium`}>
+                            {status.message}
+                        </div>
+                    )}
                     <button type="submit" className="btn btn-ghost">
                         Create Account
                     </button>
