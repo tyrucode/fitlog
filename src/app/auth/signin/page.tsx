@@ -44,6 +44,23 @@ function page() {
         setFormData((prev) => ({ ...prev, [id]: value }))
     }
 
+    const reqPasswordEmail = async () => {
+        const { email } = formData;
+        setStatus('');
+
+        const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: 'https://example.com/update-password',
+        })
+
+        if (error) {
+            console.log('error requesting password reset:', error);
+            setStatus(error.message);
+        } else {
+            console.log('password reset email sent!', data);
+            setStatus('Password reset email sent! Please check your inbox.');
+        }
+    };
+
     return (
         <div className="flex flex-col items-center justify-center p-8 gap-6 sm:p-20">
             <h1 className="text-3xl font-semibold text-center">Sign In!</h1>
@@ -91,7 +108,7 @@ function page() {
                     </button>
                 </form>
                 <a className=" flex flex-col gap-4 btn btn-ghost" href="/auth/signup">Dont have an account? Sign Up here!</a>
-                <a className=" flex flex-col gap-4 btn btn-ghost" href="/auth/resetpassword">Forgot your password? Reset here!</a>
+                <button className=" flex flex-col gap-4 btn btn-ghost" onClick={() => reqPasswordEmail()}>Forgot your password? Reset here!</button>
 
             </div>
         </div>
