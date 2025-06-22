@@ -33,7 +33,7 @@ function page() {
             setStatus({ type: 'error', message: error.message })
 
         } else {
-            setStatus({ type: 'success', message: 'Password successfully reset!' });
+            setStatus({ type: 'success', message: 'You successfully signed in!' });
             setTimeout(() => {
                 window.location.href = "/diary";
             }, 1000);
