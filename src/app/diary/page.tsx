@@ -4,6 +4,8 @@ import { useUser } from '@/context/UserContext';
 //components
 import CreateWorkoutForm from '@/components/CreateWorkoutForm';
 
+
+
 export default function Page() {
     const { user, isLoading } = useUser();
     if (isLoading) return <p className='flex flex-col items-center justify-center p-8 gap-16 sm:p-20'>Loading...</p>;
@@ -14,7 +16,6 @@ export default function Page() {
             <p>Welcome, {user.email}!</p>
 
             <CreateWorkoutForm />
-
 
         </div>
     )
