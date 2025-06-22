@@ -13,7 +13,30 @@ export type NewWorkout = {
     duration_minutes: number;
 }
 //function that creates the new workout
+export const createWorkout = async (workout: NewWorkout) => {
+    const { data: { user } } = await supabase.auth.getUser();
 
+    if (!user) {
+        console.log('user not authenticated');
+        throw new Error('user not authenticated');
+    }
+
+    const { data, error } = await supabase
+        .from('workouts')
+        .insert([
+            {
+                user_id: user.id,
+                exercise_name: workout.exercise_name,
+                duration_minutes: workout.duration_minutes
+            }
+        ])
+        .select();
+
+    if (error) {
+        throw new Error('error creating workout', error);
+    }
+    return data;
+}
 //function that retrieves all of the users workouts
 
 //function to delete a workout
