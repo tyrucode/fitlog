@@ -38,7 +38,26 @@ export const createWorkout = async (workout: NewWorkout) => {
     return data;
 }
 //function that retrieves all of the users workouts
+export const getUserWorkouts = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
 
+    if (!user) {
+        console.log('user not authenticated');
+        throw new Error('user not authenticated');
+    }
+
+    const { data, error } = await supabase
+        .from('workouts')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        throw new Error('error creating workout', error);
+    }
+
+    return data as Workout[];
+}
 //function to delete a workout
 
 //in the future add a function to edit workouts
