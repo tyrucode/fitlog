@@ -1,6 +1,6 @@
 'use client';
 //context
-import supabase from '@/lib/supbase';
+import supabase from '@/lib/supabase';
 import { useUser } from '@/context/UserContext';
 
 

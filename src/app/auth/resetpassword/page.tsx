@@ -1,6 +1,6 @@
 'use client';
 import { useState } from "react";
-import supabase from "@/lib/supbase";
+import supabase from "@/lib/supabase";
 
 function page() {
     //type alias for the forms data

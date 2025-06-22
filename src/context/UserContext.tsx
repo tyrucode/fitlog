@@ -2,7 +2,7 @@
 
 import { useEffect, createContext, useContext, useState, Children } from "react"
 import { Session, User } from "@supabase/supabase-js"
-import supabase from "@/lib/supbase"
+import supabase from "@/lib/supabase"
 
 //type alias for our UserContext for typescript type checking
 type UserContextType = {
