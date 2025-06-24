@@ -19,6 +19,8 @@ function CreateWorkoutForm() {
     }); //submission state for UI 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    //form change handler
+
     //submitting workout once created
     const handleSubmit = async () => {
         console.log('form submitted');
