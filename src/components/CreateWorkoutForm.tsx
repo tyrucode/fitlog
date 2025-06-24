@@ -22,7 +22,13 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
     //form change handler
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
-        setFormData((prev) => ({ ...prev, [id]: value }))
+        //making sure our duration is a number no matter what
+        if (id === 'duration_minutes') {
+            const numValue = parseInt(value) || 0;
+            setFormData((prev) => ({ ...prev, [id]: numValue }));
+        } else {
+            setFormData((prev) => ({ ...prev, [id]: value }));
+        }
     }
     //submitting workout once created
     const handleSubmit = async () => {
@@ -32,8 +38,8 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
             setStatus({ type: 'error', message: 'Exercise name is required' });
             return;
         }
-        if (formData.duration_minutes === NaN) {
-            setStatus({ type: 'error', message: 'Duration must be greater than 0' });
+        if (!isNaN(Number(formData.exercise_name.trim()))) {
+            setStatus({ type: 'error', message: 'Exercise name cannot be a number' });
             return;
         }
         if (formData.duration_minutes <= 0) {
@@ -87,7 +93,7 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
                         value={formData.exercise_name}
                         onChange={handleChange}
                         required
-                        placeholder="Last Name"
+                        placeholder="Pushups, situps, curls, etc."
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"
                     />
                     <label htmlFor="duration_minutes">Duration (minutes):</label>
@@ -97,6 +103,7 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
                         value={formData.duration_minutes}
                         onChange={handleChange}
                         required
+
                         placeholder="30"
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"
                     />
