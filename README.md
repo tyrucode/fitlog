@@ -1,10 +1,9 @@
 Welcome to FitLog! 
-FOR ANYONE VIEWING, THIS IS MASSIVE WIP
+For anyone looking at this repository, it is a work on progress.
+This project is meant as a way for me to learn Supabase, TypeScript, and Next.Js
+while also building a functioning, useful applicstion with real world implications.
 
-
-start off with just a way for users to log their workouts
-
-site map - https://www.figma.com/design/dBgbvUTsyADgcMQRt1ukHs/Untitled?node-id=0-1&t=6hOpEdddalzPxZHS-1
+blueprint stage one : https://www.figma.com/design/dBgbvUTsyADgcMQRt1ukHs/Untitled?node-id=0-1&t=6hOpEdddalzPxZHS-1
 
 users will see home page
 when user tries to click anything they get told to sign up using supabase, probably google/github signins.
