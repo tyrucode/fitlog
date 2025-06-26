@@ -81,11 +81,27 @@ function WorkoutList({ refreshTrigger }: WorkoutListProps) {
             ) : (
                 // if available workouts display this
                 <div className="grid gap-4">
-
+                    {workouts.map((workout) => {
+                        return (
+                            <div key={workout.id} className="border border-black rounded p-4 bg-white shadow-md flex justify-between items-center">
+                                <div>
+                                    <h3 className="font-semibold text-lg">{workout.exercise_name}</h3>
+                                    <p className="text-gray-600">Duration: {workout.duration_minutes} minutes</p>
+                                    <p className="text-gray-500 text-sm">{formatDate(workout.created_at)}</p>
+                                </div>
+                                <button onClick={() => handleDelete(workout.id)}
+                                    className="btn btn-ghost text-red-600 "
+                                >
+                                    Delete Workout
+                                </button>
+                            </div>
+                        )
+                    })}
                 </div>
-            )}
+            )
+            }
 
-        </div>
+        </div >
     )
 }
 
