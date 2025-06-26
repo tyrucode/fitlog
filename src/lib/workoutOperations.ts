@@ -12,6 +12,7 @@ export type Workout = {
 export type NewWorkout = {
     exercise_name: string;
     duration_minutes: number;
+    created_at?: string
 }
 
 //function that creates the new workout
@@ -29,7 +30,8 @@ export const createWorkout = async (workout: NewWorkout) => {
             {
                 user_id: user.id,
                 exercise_name: workout.exercise_name,
-                duration_minutes: workout.duration_minutes
+                duration_minutes: workout.duration_minutes,
+                created_at: workout.created_at || new Date()
             }
         ])
         .select();

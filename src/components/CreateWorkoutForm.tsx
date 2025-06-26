@@ -17,7 +17,7 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
     const [formData, setFormData] = useState<NewWorkout>({
         exercise_name: '',
         duration_minutes: 0,
-        created_at: Date.now()
+        created_at: new Date().toISOString()
     });
 
     //form change handler
@@ -51,8 +51,13 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
         setStatus(null);
 
         try {
+            //using new workout data obj so we can collect the data as a string as soon as its submitted
+            const workoutData = {
+                ...formData,
+                created_at: new Date().toISOString()
+            };
             //using db createworkout function with our form data we collected
-            await createWorkout(formData);
+            await createWorkout(workoutData);
             //resetting form data
             setFormData({
                 exercise_name: '',
@@ -68,7 +73,7 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
             setStatus({ type: 'error', message: 'Failed to create workout, please try again.' });
         } finally {
             setIsSubmitting(false);
-            setStatus({ type: 'success', message: 'workout successfully created.' });
+            setStatus({ type: 'success', message: 'workout successfully created', });
             //clearing success message after 3 seconds
             setTimeout(() => setStatus(null), 3000);
         }
