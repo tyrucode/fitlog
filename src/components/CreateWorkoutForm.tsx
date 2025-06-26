@@ -73,7 +73,7 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
             setStatus({ type: 'error', message: 'Failed to create workout, please try again.' });
         } finally {
             setIsSubmitting(false);
-            setStatus({ type: 'success', message: 'workout successfully created', });
+            setStatus({ type: 'success', message: 'Workout created successfully!', });
             //clearing success message after 3 seconds
             setTimeout(() => setStatus(null), 3000);
         }

@@ -15,8 +15,23 @@ export default function Page() {
         setRefreshTrigger(prev => prev + 1)
     }
 
-    if (isLoading) return <p className='flex flex-col items-center justify-center p-8 gap-16 sm:p-20'>Loading...</p>;
-    if (!user) return <p className='flex flex-col items-center justify-center p-8 gap-16 sm:p-20'>You must be logged in.</p>;
+    if (isLoading) return (
+        <div className='flex flex-col items-center  min-h-screen p-8 gap-16 sm:p-20'>
+            <div className="bg-white border border-black rounded-lg p-8 shadow-xl">
+                <div className="animate-pulse text-xl font-semibold">Loading your dashboard...</div>
+            </div>
+        </div>
+    );
+
+    if (!user) return (
+        <div className='flex flex-col items-center min-h-screen p-8 gap-16 sm:p-20'>
+            <div className="bg-white border flex flex-col border-black rounded-lg p-8 shadow-xl">
+                <h2 className="text-2xl font-bold mb-4">Access Denied</h2>
+                <div className="animate-pulse text-xl mb-4 font-semibold text-red-600">You must be logged in to access your dashboard.</div>
+                <a href="/auth/signin" className="btn btn-ghost">Sign In</a>
+            </div>
+        </div>
+    );
 
     return (
         <div className="flex flex-col items-center justify-center p-8 gap-6 sm:p-20">

@@ -57,9 +57,13 @@ function WorkoutList({ refreshTrigger }: WorkoutListProps) {
         });
     };
 
-    if (isLoading) {
-        return <div className="text-center text-bold">Loading workouts...</div>
-    }
+    if (isLoading) return (
+        <div className='flex flex-col items-center  min-h-screen p-8 gap-16 sm:p-20'>
+            <div className="bg-white border border-black rounded-lg p-8 shadow-xl">
+                <div className="animate-pulse text-xl font-semibold">Loading your workouts...</div>
+            </div>
+        </div>
+    );
 
     if (error) {
         return (
@@ -69,6 +73,10 @@ function WorkoutList({ refreshTrigger }: WorkoutListProps) {
             </div>
         );
     }
+
+    // const totalWorkouts = workouts.length;
+    // const totalMinutes = workouts.reduce((sum, w) => sum + w.duration_minutes, 0);
+    // const workoutAvg = totalWorkouts > 0 ? Math.round(totalMinutes / totalWorkouts) : 0;
 
     return (
         <div className="w-full max-w-4xl">
