@@ -72,36 +72,38 @@ function WorkoutList({ refreshTrigger }: WorkoutListProps) {
 
     return (
         <div className="w-full max-w-4xl">
-            <h2 className="text-xl font-semibold mb-4">Your Workouts</h2>
-            {/* if no workouts display this */}
-            {workouts.length === 0 ? (
-                <div className="text-center text-black p-8">
-                    <p>No workouts yet. Create your first workout above!</p>
-                </div>
-            ) : (
-                // if available workouts display this
-                <div className="grid gap-4">
-                    {workouts.map((workout) => {
-                        return (
-                            <div key={workout.id} className="border border-black rounded p-4 bg-white shadow-md flex justify-between items-center">
-                                <div>
-                                    <h3 className="font-semibold text-lg">{workout.exercise_name}</h3>
-                                    <p className="text-gray-600">Duration: {workout.duration_minutes} minutes</p>
-                                    <p className="text-gray-500 text-sm">{formatDate(workout.created_at)}</p>
+            <div className="border border-black rounded p-4 bg-neutral-300">
+                <h2 className="text-xl font-semibold mb-4">Your Workouts</h2>
+                {/* if no workouts display this */}
+                {workouts.length === 0 ? (
+                    <div className="text-center text-black p-8">
+                        <p>No workouts yet. Create your first workout above!</p>
+                    </div>
+                ) : (
+                    // if available workouts display this
+                    <div className="grid gap-4">
+                        {workouts.map((workout) => {
+                            return (
+                                <div key={workout.id} className="border border-black rounded p-4 bg-white shadow-md flex justify-between items-center">
+                                    <div>
+                                        <h3 className="font-semibold text-lg">{workout.exercise_name}</h3>
+                                        <p className="text-gray-600">Duration: {workout.duration_minutes} minutes</p>
+                                        <p className="text-gray-500 text-sm">{formatDate(workout.created_at)}</p>
+                                    </div>
+                                    <button onClick={() => handleDelete(workout.id)}
+                                        className="btn btn-ghost text-red-600 "
+                                    >
+                                        Delete Workout
+                                    </button>
                                 </div>
-                                <button onClick={() => handleDelete(workout.id)}
-                                    className="btn btn-ghost text-red-600 "
-                                >
-                                    Delete Workout
-                                </button>
-                            </div>
-                        )
-                    })}
-                </div>
-            )
-            }
+                            )
+                        })}
+                    </div>
+                )
+                }
 
-        </div >
+            </div >
+        </div>
     )
 }
 

@@ -82,9 +82,8 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
 
     return (
         <>
-            <h2 className="text-xl font-semibold mb-4">Create a Workout</h2>
             <div className="border border-black rounded p-6 w-full max-w-md bg-white shadow-md">
-
+                <h2 className="text-xl font-semibold mb-4">Create a Workout</h2>
                 <p>Start by creating your workout</p>
                 <form
                     className="flex flex-col gap-4"
