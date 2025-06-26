@@ -24,8 +24,10 @@ export default function Page() {
                 <h1 className='text-3xl font-bold mb-2'>FITLOG DASHBOARD</h1>
                 <p className='text-lg'>Welcome back, {user.user_metadata.first_name}</p>
             </div >
-            <CreateWorkoutForm onWorkoutCreated={handleWorkoutCreated} />
-            <WorkoutList refreshTrigger={refreshTrigger} />
+            <div className='flex flex-row gap-6'>
+                <CreateWorkoutForm onWorkoutCreated={handleWorkoutCreated} />
+                <WorkoutList refreshTrigger={refreshTrigger} />
+            </div>
         </div>
     )
 }
