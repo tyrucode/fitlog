@@ -16,7 +16,8 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
     //creating the form which uses types from our workout operations db file
     const [formData, setFormData] = useState<NewWorkout>({
         exercise_name: '',
-        duration_minutes: 0
+        duration_minutes: 0,
+        created_at: Date.now()
     });
 
     //form change handler
