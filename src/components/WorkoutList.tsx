@@ -74,10 +74,6 @@ function WorkoutList({ refreshTrigger }: WorkoutListProps) {
         );
     }
 
-    // const totalWorkouts = workouts.length;
-    // const totalMinutes = workouts.reduce((sum, w) => sum + w.duration_minutes, 0);
-    // const workoutAvg = totalWorkouts > 0 ? Math.round(totalMinutes / totalWorkouts) : 0;
-
     return (
         <div className="w-full max-w-4xl">
             <div className="border border-black rounded p-4 bg-neutral-300">

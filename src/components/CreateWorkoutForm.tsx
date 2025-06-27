@@ -82,7 +82,7 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
 
     return (
         <>
-            <div className="border border-black rounded p-6 w-full max-w-md bg-white shadow-md">
+            <div className="border border-black rounded p-6 w-full bg-white shadow-md">
                 <h2 className="text-xl font-semibold mb-4">Create a Workout</h2>
                 <p>Start by creating your workout</p>
                 <form
@@ -98,7 +98,7 @@ function CreateWorkoutForm({ onWorkoutCreated }: CreateWorkoutFormProps) {
                         value={formData.exercise_name}
                         onChange={handleChange}
                         required
-                        placeholder="Pushups, situps, curls, etc."
+                        placeholder="Pushups, Squats, Curls..."
                         className="bg-neutral-300 border border-black rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-black"
                     />
                     <label htmlFor="duration_minutes">Duration (minutes):</label>
