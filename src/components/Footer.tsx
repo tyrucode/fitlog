@@ -25,9 +25,6 @@ function Footer() {
                 <a target="_blank" href="https://www.linkedin.com/in/tyler-ruiz-84a287305/">
                     <FaLinkedin className="w-10 h-10" />
                 </a>
-                {/*  width="24"
-                        height="24"
-                        viewBox="0 0 24 24" */}
             </nav>
         </footer>
     )
