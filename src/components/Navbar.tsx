@@ -25,12 +25,14 @@ function Navbar() {
             <div className="flex gap-2 ">
                 <ul className="menu menu-horizontal px-1 text-xl">
                     <li><a href="/diary" className="btn btn-ghost text-xl">Dashboard <FaHome /></a></li>
-                    <li><a className="btn btn-ghost text-xl">Friends <FaUserFriends /></a></li>
                     {!user && (
                         <li><a className="btn btn-ghost text-xl" href="/auth/signup">Join</a></li>
                     )}
                     {user && (
-                        <li><button onClick={signOut} className="btn btn-ghost text-xl">Sign Out</button></li>
+                        <>
+                            <li><a className="btn btn-ghost text-xl" href="/friends">Friends <FaUserFriends /></a></li>
+                            <li><button onClick={signOut} className="btn btn-ghost text-xl">Sign Out</button></li>
+                        </>
                     )}
                 </ul>
 
