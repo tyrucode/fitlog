@@ -11,7 +11,7 @@ export default function Home() {
               <p className='text-xl text-neutral-600'>
                 <p>To use this app sign up, or create an account!</p>
                 <p>Fitlog is an app that allows users to log the workouts they do and see their progress over time.</p>
-                <p>You can also visit your friends pages and see how their workouts are going as well!</p>
+                <p>You can also visit your friends pages and see how their workouts are going as well !</p>
               </p>
             </div>
           </div>
