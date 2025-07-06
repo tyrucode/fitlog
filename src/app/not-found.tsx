@@ -1,26 +1,26 @@
-"use client"
+// app/not-found.tsx
+'use client';
 
-import { useState, useEffect } from "react"
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-function notfound() {
-    // state for the not found page
+export default function NotFound() {
     const [seconds, setSeconds] = useState(5);
     const router = useRouter();
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setSeconds((prevSeconds) => { // take the timer and  when it hits 1 nav the user to the home page
+            setSeconds((prevSeconds) => {
                 if (prevSeconds === 1) {
-                    clearInterval(timer); // stop the timer
-                    router.push('/'); // send user home
+                    clearInterval(timer);
+                    router.push('/');
                     return 0;
                 }
                 return prevSeconds - 1;
             });
         }, 1000);
 
-        return () => clearInterval(timer); // cleanup
+        return () => clearInterval(timer);
     }, [router]);
 
     return (
@@ -34,5 +34,3 @@ function notfound() {
         </div>
     )
 }
-
-export default notfound
