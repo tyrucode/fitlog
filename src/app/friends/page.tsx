@@ -12,6 +12,12 @@ function page() {
                             <p className='text-xl text-neutral-600'>
                                 <p>View your friends profiles here</p>
                             </p>
+                            <div>
+                                <p className='text-xl text-neutral-600'>
+                                    <p>To add friends, go to your dashboard and click the "Add Friend" button.</p>
+                                    <p>You can see your friends' workouts and progress here!</p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
