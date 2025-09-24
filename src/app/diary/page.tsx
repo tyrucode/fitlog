@@ -16,14 +16,6 @@ export default function Page() {
         setRefreshTrigger(prev => prev + 1)
     }
 
-    if (isLoading) return (
-        <div className='flex flex-col items-center  min-h-screen p-8 gap-16 sm:p-20'>
-            <div className="bg-white border border-black rounded-lg p-8 shadow-xl">
-                <div className="animate-pulse text-xl font-semibold">Loading your dashboard...</div>
-            </div>
-        </div>
-    );
-
     if (!user) return (
         <div className='flex flex-col items-center min-h-screen p-8 gap-16 sm:p-20'>
             <div className="bg-white border flex flex-col border-black rounded-lg p-8 shadow-xl">
@@ -33,6 +25,16 @@ export default function Page() {
             </div>
         </div>
     );
+
+    if (isLoading) return (
+        <div className='flex flex-col items-center  min-h-screen p-8 gap-16 sm:p-20'>
+            <div className="bg-white border border-black rounded-lg p-8 shadow-xl">
+                <div className="animate-pulse text-xl font-semibold">Loading your dashboard...</div>
+            </div>
+        </div>
+    );
+
+
 
     return (
         <div className="min-h-screen bg-neutral-100 p-4 sm:p-8">
