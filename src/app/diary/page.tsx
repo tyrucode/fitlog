@@ -6,6 +6,7 @@ import CreateWorkoutForm from '@/components/CreateWorkoutForm';
 import WorkoutList from '@/components/WorkoutList';
 import { useState } from 'react';
 import QuickStats from '@/components/QuickStats';
+import StreakStats from '@/components/StreakStats';
 
 export default function Page() {
     const { user, isLoading } = useUser();
@@ -33,8 +34,6 @@ export default function Page() {
             </div>
         </div>
     );
-
-
 
     return (
         <div className="min-h-screen bg-neutral-100 p-4 sm:p-8">
@@ -77,8 +76,15 @@ export default function Page() {
                         <WorkoutList refreshTrigger={refreshTrigger} />
                     </div>
                 </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+                    <StreakStats refreshTrigger={refreshTrigger} />
+
+                    <div className="space-y-4">
+                        <QuickStats refreshTrigger={refreshTrigger} />
+                    </div>
+                </div>
             </div>
-            <QuickStats refreshTrigger={refreshTrigger} />
         </div>
     )
 }
